@@ -1,0 +1,294 @@
+/*
+ *
+ * CSS for Chutes And Ladders
+ *
+ * Created on Apr. 27th, 2017
+ *
+ * By Andrew Prentiss Baker
+ *
+ */
+
+#pregame-bg {
+    display: none;
+    width: 400vh;
+    height: 518vh;
+    background: url("../images/ChutesandLaddersTreble.png") no-repeat center center;
+    background-size: cover;
+    animation: none;
+}
+
+@keyframes bgSlide {
+    0% {
+        background-position: -20 -424vh;
+    }
+    8% {
+        background-position: -243vh -424vh;
+    }
+    9% {
+        background-position: -243vh -377vh;
+    }
+    17% {
+        background-position: -20vh -377vh;
+    }
+    18% {
+        background-position: -20vh -330vh;
+    }
+    26% {
+        background-position: -243vh -330vh;
+    }
+    27% {
+        background-position: -243vh -283vh;
+    }
+    35% {
+        background-position: -20vh -283vh;
+    }
+    36% {
+        background-position: -20vh -236vh;
+    }
+    44% {
+        background-position: -243vh -236vh;
+    }
+    45% {
+        background-position: -243vh -189vh;
+    }
+    53% {
+        background-position: -20vh -189vh;
+    }
+    54% {
+        background-position: -20vh -142vh;
+    }
+    62% {
+        background-position: -243vh -142vh;
+    }
+    63% {
+        background-position: -243vh -95vh;
+    }
+    71% {
+        background-position: -20vh -95vh;
+    }
+    72% {
+        background-position: -20vh -48vh;
+    }
+    80% {
+        background-position: -243vh -48vh;
+    }
+    88% {
+        background-position: -243vh -1vh;
+    }
+    89% {
+        background-position: -20vh -1vh;
+    }
+    100% {
+        background-position: -20vh -424vh;
+    }
+}
+
+@keyframes introSlide {
+    0% {
+        background-position: -184px 158px;
+    }
+    100% {
+        background-position: -184px -3750px;
+    }
+}
+
+@keyframes playOut {
+    0% {}
+    100% {
+        margin-left: 750px;
+    }
+}
+
+body {
+    font-family: Helvetica;
+    overflow: hidden;
+}
+
+#pregame {
+    width: 800px;
+    height: 830px;
+    top: 50%;
+    left: 50%;
+    display: none;
+    position: fixed;
+    margin-left: -400px;
+    margin-top: -415px;
+}
+
+h1 {
+    font-size: 3em;
+    background-color: black;
+    padding: 10px;
+    color: whitesmoke;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#cal {
+    width: 9.3em;
+}
+
+#apb {
+    width: 13.11em;
+}
+
+#copy {
+    width: 3.77em;
+}
+
+#prompt {
+    color: whitesmoke;
+    background-color: black;
+    font-weight: bold;
+    width: 6.17em;
+    font-size: 3em;
+    padding: 10px;
+    text-align: center;
+    margin: 100px auto 0px auto;
+}
+
+#options-box {
+    margin: 0px auto 100px auto;
+}
+
+.compass-box {
+    color: whitesmoke;
+    background-color: black;
+    font-weight: bold;
+    width: 6.17em;
+    font-size: 3em;
+    padding: 10px;
+    text-align: center;
+}
+
+#perfnotes-bg {
+    color: whitesmoke;
+    background-color: black;
+    width: 26em;
+    padding: 10px;
+    text-align: center;
+    margin: 100px auto;
+}
+
+#perf-notes {
+    color: black;
+    background-color: whitesmoke;
+    opacity: 0.9;
+    width: 7.3em;
+    font-size: 3em;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+.button {
+    color: black;
+    background-color: whitesmoke;
+    opacity: 0.9;
+    width: 4em;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#gameboard {
+    display: none;
+    width: 3672px;
+    height: 4752px;
+    background-position-x: -184px;
+    background-position-y: 158px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: none;
+}
+
+.box {
+    display: none;
+    position: relative;
+}
+
+#main-box {
+    height: 420px;
+    width: 314px;
+    top: 350px;
+    left: 28px;
+    margin: 0 -314px -420px 0;
+}
+
+#spacer {
+    height: 852px;
+    width: 318px;
+    top: 114px;
+    left: 28px;
+    margin: 0 -318px -852px 0;
+}
+
+#end-box {
+    height: 420px;
+    width: 314px;
+    top: 94px;
+    left: 28px;
+    margin: 0 -314px -420px 0;
+}
+
+#gui {
+    display: none;
+    width: 20vh;
+    height: 7vh;
+    margin: -3.5vh auto auto -10vh;
+    top: 80%;
+    left: 50%;
+    position: fixed;
+}
+
+#begin {
+    width: 4em;
+    height: 1.2em;
+    margin: -.6em auto auto -2em;
+    left: 50%;
+    top: 50%;
+    position: relative;
+}
+
+#roll {
+    display: none;
+    width: 700px;
+    height: 120px;
+    margin: -60px auto auto -350px;
+    top: 90%;
+    left: 50%;
+    position: fixed;
+}
+
+#active {
+    color: whitesmoke;
+    background-color: black;
+    border: solid;
+    border-color: whitesmoke;
+    width: 4em;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#perf-active {
+    color: whitesmoke;
+    background-color: black;
+    border-color: whitesmoke;
+    width: 7.3em;
+    font-size: 3em;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+#gameover {
+    width: 1000px;
+    height: 100px;
+    margin-left: -500px;
+    margin-top: -50px;
+    font-size: 50px;
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+}
