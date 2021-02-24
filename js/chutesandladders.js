@@ -53,7 +53,7 @@ function firstRoll() {
     setPlayingArea();
     switchGUI();
     document.addEventListener('keydown', function(e) {
-        if (e.keyCode === 32) {
+        if (e.keyCode === 32 || e.key === " ") {
             checkCorL();
         }
     });
@@ -84,7 +84,7 @@ async function setGameboard() {
     $('#gameboard').css('background-image', 'url(../ChutesandLadders/images/ChutesandLadders' + gameBoard + '.png)');
     $('#gameboard').css('animation', 'introSlide 5s linear');
     await stall(1000);
-    $('#gameboard').fadeIn(2000);
+    $('#gameboard').fadeIn(1000);
     $('#gameboard').css('background-position', '-184px -3750px');
     await stall(6000);
     $('#gameboard').css('animation', 'none');
@@ -101,8 +101,8 @@ function setSide() {
 }
 
 async function setGUI() {
-    $('#gui').fadeIn(2000);
-    await stall(2000);
+    $('#gui').fadeIn(1000);
+    await stall(1000);
     $('#begin').on('click', function() {
         $('#begin').attr('id', 'active');
         firstRoll();
@@ -110,8 +110,8 @@ async function setGUI() {
 }
 
 function switchGUI() {
-    $('#roll').fadeIn(2000);
-    $('#gui').fadeOut(2000);
+    $('#roll').fadeIn(1000);
+    $('#gui').fadeOut(1000);
 }
 
 function rollDice() {
@@ -173,7 +173,7 @@ function setGameboardPos() {
     }
     $('#gameboard').css('background-position-y', gameboardY + 'px');
     $('#gameboard').css('background-position-x', gameboardX + 'px');
-    $('#gameboard').fadeIn(2000);
+    $('#gameboard').fadeIn(1000);
 }
 
 function resetPlayingArea() {
@@ -219,7 +219,6 @@ function setPlayingArea() {
         newMainX = 28 + tempMainX;
         newMainWidth = ((324 * diceRoll) - 12);
         if (!isMovingRight(thisFrame)) {
-            alert(newMainWidth + ' ' + tempMainX);
             newMainX = 2040 - newMainWidth - tempMainX;
         }
         $('#main-box').css('border', '10px solid');
@@ -234,7 +233,7 @@ function setPlayingArea() {
     $('#end-box').css('height', newEndHeight + 'px');
     diceRoll = tempDiceRoll;
     $('#roll').html('You rolled a: ' + diceRoll + '<br>Press Spacebar to Roll Again');
-    $('.box').fadeIn(2000);
+    $('.box').fadeIn(1000);
 }
 
 function justSpacerTurn() {
@@ -274,7 +273,6 @@ function lastFrameTurn() {
         newEndHeight = 442;
     } else {
         newMainX = 355;
-        alert('lastFrameTurn --> else newMainX: ' + newMainX);
         newEndHeight = 442;
         newEndX -= 5;
     }
@@ -290,7 +288,6 @@ function midFrameTurn() {
         newMainWidth = 1722 - newMainX;
     } else {
         newMainX = 355;
-        alert('midFrameTurn --> else newMainX: ' + newMainX);
     }
     $('#main-box').css('border', '10px solid');
     $('#main-box').css('border-' + side1, 'none');
@@ -301,9 +298,9 @@ function midFrameTurn() {
 }
 
 async function fadeBoard() {
-    $('.box').fadeOut(2000);
-    $('#gameboard').fadeOut(2000);
-    await stall(2000);
+    $('.box').fadeOut(1000);
+    $('#gameboard').fadeOut(1000);
+    await stall(1000);
     $('#roll').html('You rolled a: _<br>Press Spacebar to Roll Again');
 }
 
@@ -388,11 +385,12 @@ async function triggerTrueEndGame() {
     $('#gameboard').css('animation', 'playOut 10s linear');
     $('#gameboard').fadeOut(10000);
     await stall(10000);
-    $('#gameover').fadeIn(3000);
-    await stall(6000);
-    $('#gameover').fadeOut(3000);
+    $('#gameover').fadeIn(2000);
+    await stall(4000);
+    $('#gameover').fadeOut(2000);
+    await stall(2000);
     $('#gameover').text('Reload Page to Play Again');
-    $('#gameover').fadeIn(3000);
+    $('#gameover').fadeIn(2000);
     await stall(5000);
     main();
 }
@@ -424,8 +422,8 @@ var trueGame = false;
 var quickGame = false;
 
 $(function main() {
-    $('#pregame').fadeIn(3000);
-    $('#pregame-bg').fadeIn(3000);
+    $('#pregame').fadeIn(1000);
+    $('#pregame-bg').fadeIn(1000);
     $('#pregame-bg').css('animation', 'bgSlide 300s infinite linear');
     $('#perf-notes').on('mousedown', function() {
         $(this).attr('id', 'perf-active');
@@ -439,46 +437,46 @@ $(function main() {
         if (trebleClef || bassClef) {
             trueGame = true;
             $(this).attr('id', 'active')
-            $('#pregame').fadeOut(1500);
-            $('#pregame-bg').fadeOut(3000);
-            await stall(4000);
+            $('#pregame').fadeOut(1000);
+            $('#pregame-bg').fadeOut(1000);
+            await stall(1000);
             $('#pregame-bg').addClass('off');
             playGame();
         } else {
             trebleClef = true;
             $(this).attr('id', 'active');
-            $('#options-box').fadeOut(1500);
-            $('#prompt').fadeOut(1500);
-            await stall(1500);
+            $('#options-box').fadeOut(1000);
+            $('#prompt').fadeOut(1000);
+            await stall(1000);
             $(this).attr('id', 'option1');
             $('#prompt').text('Pick a game type:');
             $(this).text('True');
             $('#option2').text('Quick');
-            $('#options-box').fadeIn(1500);
-            $('#prompt').fadeIn(1500);
+            $('#options-box').fadeIn(1000);
+            $('#prompt').fadeIn(1000);
         }
     });
     $('#option2').on('click', async function() {
         if (trebleClef || bassClef) {
             quickGame = true;
             $(this).attr('id', 'active');
-            $('#pregame').fadeOut(1500);
-            $('#pregame-bg').fadeOut(3000);
-            await stall(4000);
+            $('#pregame').fadeOut(1000);
+            $('#pregame-bg').fadeOut(1000);
+            await stall(1000);
             $('#pregame-bg').addClass('off');
             playGame();
         } else {
             bassClef = true;
             $(this).attr('id', 'active');
-            $('#options-box').fadeOut(1500);
-            $('#prompt').fadeOut(1500);
-            await stall(1500);
+            $('#options-box').fadeOut(1000);
+            $('#prompt').fadeOut(1000);
+            await stall(1000);
             $(this).attr('id', 'option2');
             $('#prompt').text('Pick a game type:');
             $('#option1').text('True');
             $(this).text('Quick');
-            $('#options-box').fadeIn(1500);
-            $('#prompt').fadeIn(1500);
+            $('#options-box').fadeIn(1000);
+            $('#prompt').fadeIn(1000);
         }
     });
 });
